@@ -1,0 +1,10 @@
+---
+# Author: Praveen Poreddy
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: format log file
+      script: scripts/format.sh
+      #args:
+        #creates: /home/chintu/fom
+      run_once: true

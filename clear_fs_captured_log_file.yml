@@ -1,0 +1,16 @@
+---
+# Author: Praveen Poreddy
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: delete earlier log files if they exist
+      file:
+        path: "{{ item }}"
+        state: absent
+        owner: chintu
+        group: chintu
+      delegate_to: localhost
+      run_once: true
+      with_items:
+       - '/home/chintu/dm'
+

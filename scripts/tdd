@@ -1,0 +1,19 @@
+#!/bin/bash
+#echo "### On linux server `hostname` ###"
+THRUSHOLD_VALUE=10
+green=`tput setaf 2`
+red=`tput setaf 1`
+reset=`tput sgr0`
+RED='\033[0;31m'
+df -hTP|awk '{ print $7, $6 }'|sed -n '1!p' >a.txt
+filename='a.txt'
+while read p; do
+    filesystem_name=$(echo $p |awk '{print $1}')
+    usuage=$(echo $p |awk '{print $2}'|tr -d '%') ### append percentage at last
+    if [ $usuage -gt $THRUSHOLD_VALUE ];
+    then
+        usuage+=%
+        echo "### On linux server ${green}`hostname -f`${reset} ###"
+        echo "filesystem  ${red}$filesystem_name${reset} is currenlty at ${red}$usuage${reset} consumption"
+    fi
+done < $filename
