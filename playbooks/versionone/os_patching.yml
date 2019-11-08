@@ -1,0 +1,34 @@
+- hosts: all
+  gather_facts: yes
+  become: yes
+  vars:
+    current_patch: '11-10-2019'
+  tasks:
+    - name: prompt whether to continue this script or not
+      pause:
+        prompt: "This playbooks patches linux server! Press Enter to continue or Ctrl+c and a to abort"
+
+    - name: display time
+      shell: uptime
+      when: "{{ ansible_local.patch.patch_ver }} != {{ current_patch }}"
+
+    - name: set cusotm facts directory on remote servers
+      file:
+        path: /etc/ansible/facts.d
+        recurse: yes
+        state: directory
+
+    - name: copy our custom facts to remote servers
+      template:
+        src: '/home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/custom_files/patch.fact' 
+        dest: '/etc/ansible/facts.d/patch.fact'
+        mode: '0775'
+
+    - name: reload our custom facts
+      setup: filter=ansible_local
+
+    - name: display local custom fact
+      debug:
+        msg: "your patch version is {{ ansible_local.patch.patch_ver }}"
+        
+    
