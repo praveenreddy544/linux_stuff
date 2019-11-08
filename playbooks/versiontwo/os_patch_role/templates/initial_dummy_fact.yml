@@ -1,6 +1,6 @@
 #!/bin/bash
-
-patch_version_var='11-10-1970'
+# Setting epoch date as below dummy variable for first time 
+patch_version_var='01-01-1970'
 
 cat <<EOF
 {
