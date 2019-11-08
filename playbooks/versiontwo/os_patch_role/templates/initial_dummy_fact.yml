@@ -1,0 +1,9 @@
+#!/bin/bash
+
+patch_version_var='11-10-1970'
+
+cat <<EOF
+{
+    "patch_ver" : "$patch_version_var"
+}
+EOF

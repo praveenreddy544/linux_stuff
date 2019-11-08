@@ -1,0 +1,6 @@
+- hosts: all
+  gather_facts: yes
+  become: yes
+  roles:
+    - os_patch_role
+  #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
