@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - name: create required mountpoints
+      file:
+        path: /tmp/data/one
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+        recurse: yes

@@ -1,0 +1,30 @@
+---
+# Author: Praveen Poreddy
+- hosts: all
+  gather_facts: no
+  serial: 1
+  tasks:
+    - name: create log file to hold returned results
+      file:
+        path: /home/chintu/dm
+        state: touch
+        owner: chintu
+        group: chintu
+        mode: '0644'
+      delegate_to: localhost
+      run_once: true
+    
+    - name: run disk monitor script
+      script: scripts/disk_mon.sh
+      register: op
+
+    - name: disp op
+      debug:
+        var: op
+
+    - name: run log lines to log file
+      lineinfile:
+        path: /home/chintu/dm
+        line: "{{ item }}"
+      delegate_to: localhost
+      with_items: "{{ op.stdout_lines }}"
