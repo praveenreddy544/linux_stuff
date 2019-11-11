@@ -1,0 +1,45 @@
+[RHEL-base]
+name=Redmane-CentOS Base
+baseurl=https://yumserver/base/
+#gpgcheck=1
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-77
+enabled=1
+sslclientcert= /etc/ssl/certs/yumserver.crt
+sslclientkey = /etc/ssl/private/yumserver.key
+sslverify=false
+
+[RHEL-epel-pkgs]
+name=Redmane-CentOS CentOSPlus
+baseurl=https://yumserver/epel/
+#gpgcheck=1
+enabled=1
+sslclientcert= /etc/ssl/certs/yumserver.crt
+sslclientkey = /etc/ssl/private/yumserver.key
+sslverify=false
+
+[RHEL-extras]
+name=Redmane-CentOS Extras
+baseurl=https://yumserver/extras/
+#gpgcheck=1
+enabled=1
+sslclientcert= /etc/ssl/certs/yumserver.crt
+sslclientkey = /etc/ssl/private/yumserver.key
+sslverify=false
+
+[RHEL-openlogic]
+name=Redmane-CentOS openlogic
+baseurl=https://yumserver/openlogic/
+#gpgcheck=1
+enabled=1
+sslclientcert= /etc/ssl/certs/yumserver.crt
+sslclientkey = /etc/ssl/private/yumserver.key
+sslverify=false
+
+[RHEL-updates]
+name=Redmane-CentOS Updates
+baseurl=https://yumserver/updates/
+#gpgcheck=1
+enabled=1
+sslclientcert= /etc/ssl/certs/yumserver.crt
+sslclientkey = /etc/ssl/private/yumserver.key
+sslverify=false
