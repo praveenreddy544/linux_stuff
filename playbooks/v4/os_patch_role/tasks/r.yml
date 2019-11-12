@@ -1,0 +1,4 @@
+    #- name: rompt whether to continue this script or not
+    - pause:
+        prompt: "{{ patch_prompt_message }}"
+        #prompt: data given is

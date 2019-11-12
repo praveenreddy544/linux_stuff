@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: format log file
-      script: scripts/format.sh
+      script: ../scripts/format.sh
       #args:
-        #creates: /home/chintu/fom
+        #creates: /home/prav/fom
       run_once: true

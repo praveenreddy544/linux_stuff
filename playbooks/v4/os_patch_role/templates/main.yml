@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#patch_version_var='11-10-2019'
+
+cat <<EOF
+{
+    "patch_ver" : "{{ current_patch }}"
+}
+EOF

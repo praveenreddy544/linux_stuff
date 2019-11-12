@@ -1,0 +1,22 @@
+### Firstly, for first time,  when we configure this seutp, its usful to create .ansible.cfg under that users home directory and include below flag
+
+#########################################################################################
+#### cat /home/reddy/.ansible.cfg
+
+# [defaults]
+# host_key_checking = False ###### Without this flag, atleast run ssh-keyscan or else your ansible doesnt known authenticity of host and will fail
+
+##########################################################################################
+
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: add authroized ssh pub key
+      authorized_key:
+        user: reddy
+        state: present
+        key: "{{ lookup('file', '/home/reddy/.ssh/id_rsa.pub') }}" ### This would create .ssh directory on remote servers internally
+
+### how to use this  is `ansible-playbook -i l one.yml --extra-vars "ansible_ssh_user=reddy" -k` and this will ask for ssh password of that user. So, for individual users, this playbook works like charm as we need to put password only for once, and these keys will be placed on first run.
+
+

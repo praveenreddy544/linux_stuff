@@ -1,15 +1,10 @@
-    - name: prompt whether to continue this script or not
-      pause:
-        #prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
-        prompt: "{{ patch_prompt_message }}"
-
     - name: Broadcast message to all logged in users reminding of patching
       script: ../scripts/wall.sh
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
 
     - name: wait for 2 minutes to start patching
-      wait_for:
-        timeout: 120
+      pause:
+        minutes: 2
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
 
     - name: do a safe reboot before patching

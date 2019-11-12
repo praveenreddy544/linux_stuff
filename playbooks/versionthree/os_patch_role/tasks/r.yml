@@ -1,7 +1,7 @@
-    #- name: prompt whether to continue this script or not
-     # pause:
-        #prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
-       # prompt: "{{ patch_prompt_message }}"
+    - name: prompt whether to continue this script or not
+      pause:
+        prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
+      #when: (ansible_local['patch']['patch_ver'] ==  current_patch)
 
     - name: Server patch level info
       debug:

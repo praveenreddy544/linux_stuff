@@ -12,5 +12,5 @@
       delegate_to: localhost
       run_once: true
       with_items:
-       - '/home/chintu/dm'
+       - '/home/prav/dm'
 

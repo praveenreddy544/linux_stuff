@@ -1,0 +1,20 @@
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: set cusotm facts directory on remote servers
+      file:
+        path: /etc/ansible/facts.d
+        recurse: yes
+        state: directory
+
+    - name: copy this file to that location
+      template:
+         src: 'os_patch_role/templates/initial_dummy_fact.yml'
+         dest: '/etc/ansible/facts.d/patch.fact'
+         mode: '0744'
+
+    - name: reload our custom facts
+      setup: filter=ansible_local
+
+

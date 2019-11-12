@@ -1,7 +1,6 @@
     - name: prompt whether to continue this script or not
       pause:
-        #prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
-        prompt: "{{ patch_prompt_message }}"
+        prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
 
     - name: Broadcast message to all logged in users reminding of patching
       script: ../scripts/wall.sh
@@ -12,10 +11,10 @@
         timeout: 120
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
 
-    - name: do a safe reboot before patching
-      reboot:
-        msg: 'This server is going under maintenance for OS Patching'
-        reboot_timeout: 600
+    #- name: do a safe reboot before patching
+     # reboot:
+      #  msg: 'This server is going under maintenance for OS Patching'
+       # reboot_timeout: 600
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
       
     - name: start patching
@@ -26,8 +25,8 @@
         validate_certs: no
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
     
-    - name: Rebooting after patches has been installed 
-      reboot:
+    #- name: Rebooting after patches has been installed 
+     # reboot:
       #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
 
     - name: wait till system is live

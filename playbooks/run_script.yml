@@ -6,16 +6,16 @@
   tasks:
     - name: create log file to hold returned results
       file:
-        path: /home/chintu/dm
+        path: /home/prav/dm
         state: touch
-        owner: chintu
-        group: chintu
+        owner: prav
+        group: prav
         mode: '0644'
       delegate_to: localhost
       run_once: true
     
     - name: run disk monitor script
-      script: scripts/disk_mon.sh
+      script: ../scripts/disk_mon.sh
       register: op
 
     - name: disp op
@@ -24,7 +24,7 @@
 
     - name: run log lines to log file
       lineinfile:
-        path: /home/chintu/dm
+        path: /home/prav/dm
         line: "{{ item }}"
       delegate_to: localhost
       with_items: "{{ op.stdout_lines }}"
