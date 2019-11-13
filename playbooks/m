@@ -5,3 +5,6 @@ centos22
 
 [localvm]
 localclientvm1
+
+[newly_added_vm]
+centos22
