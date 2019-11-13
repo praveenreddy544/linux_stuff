@@ -15,7 +15,7 @@
       authorized_key:
         user: reddy
         state: present
-        key: "{{ lookup('file', '/home/reddy/.ssh/id_rsa.pub') }}" ### This would create .ssh directory on remote servers internally
+        key: "{{ lookup('file', '/home/prav/.ssh/id_rsa.pub') }}" ### This would create .ssh directory on remote servers internally
 
 ### how to use this  is `ansible-playbook -i l one.yml --extra-vars "ansible_ssh_user=reddy" -k` and this will ask for ssh password of that user. So, for individual users, this playbook works like charm as we need to put password only for once, and these keys will be placed on first run.
 

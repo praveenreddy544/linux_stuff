@@ -1,5 +1,7 @@
 [cloudvm]
-52.168.20.245
-168.62.163.86
+centos7
+centos12
+centos22
+
 [localvm]
-192.168.209.130
+localclientvm1

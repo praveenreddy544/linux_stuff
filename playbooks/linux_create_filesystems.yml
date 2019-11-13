@@ -2,7 +2,7 @@
   gather_facts: no
   become: yes
   vars_files:
-    - custom_vars/filesystems_creation_specific_vars.yml
+    - '../custom_vars/filesystems_creation_specific_vars.yml'
   vars_prompt:
     - name: "vgname"
       prompt: "Default vg is datavg.Enter your desired VolumeGroup name if you want to change default volume group name: "
