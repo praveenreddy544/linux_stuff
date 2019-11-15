@@ -1,0 +1,8 @@
+[root@ms yum.repos.d]# rpm -qa|grep mysql
+mysql-community-libs-5.7.28-1.el7.x86_64
+mysql-community-server-5.7.28-1.el7.x86_64
+mysql-community-libs-compat-5.7.28-1.el7.x86_64
+php56w-mysqlnd-5.6.40-1.w7.x86_64
+mysql-community-common-5.7.28-1.el7.x86_64
+mysql57-community-release-el7-9.noarch
+mysql-community-client-5.7.28-1.el7.x86_64
