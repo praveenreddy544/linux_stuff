@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+cat <<EOF
+{
+    "patch_ver" : "{{ vers }}"
+}
+EOF
+

@@ -1,0 +1,32 @@
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: run script on local host
+      shell: ../scripts/combine_csv_add_headers.sh
+
+    - name: import combined csv to itop
+      shell:
+        cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/combined_csv_records/combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name,organization->name,description,ram,cpu,os family->name,os version->name"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
+      register: import_job_status
+
+    - name: display import output
+      debug:
+        var: import_job_status
+
+    - name: Create a log file that captures itop imports
+      file:
+        path: /home/prav/itop_status_file
+        owner: prav
+        group: prav
+        state: touch
+
+    - name: write lines to file
+      lineinfile:
+        path: /home/prav/itop_status_file
+        line: "{{ item }}"
+      with_items: "{{ import_job_status.stdout_lines }}"
+
+    - name: Notify linux team DL if any errors found in itop import
+      shell: ../scripts/itop_logs_file.sh
+   

@@ -1,0 +1,14 @@
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: set custom facts
+      set_fact:
+        firstname: praveen
+
+    - name: do facts module to get latest information
+      setup:
+
+    - name: access ur set facts
+      debug:
+        msg: "name is {{ firstname }}"
+      when: firstname != 'praveen'

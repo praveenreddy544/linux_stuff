@@ -1,0 +1,10 @@
+---
+current_patch: '11-13-2019'
+patch_prompt_message: |-
+
+  ######################################################################
+  Your are initiating ansible playbook to Patch desired linux servers!!
+  Hit Enter to continue work flow of this job (Or)
+  Hit Ctrl+c and 'a|A' to abort this job
+  ######################################################################
+

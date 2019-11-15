@@ -1,0 +1,61 @@
+- hosts: newly_added_vm
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: add yum server entry to /etc/hosts
+      lineinfile:
+        dest: /etc/hosts
+        regexp: '^10\.0\.0\.4'
+        line: '10.0.0.4 centos7 yumserver'
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: moving existing cloud repos
+      script: ../scripts/move_cloud_repos.sh
+      register: mo
+
+    - name: display mo
+      debug:
+        var: mo
+
+    - name: copy central repo file to server
+      copy:
+        src: files/localrepo
+        dest: /etc/yum.repos.d/RedMane-linux.repo
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: copy crt file
+      copy:
+        src: '/etc/ssl/certs/yumserver.crt'
+        dest: '/etc/ssl/certs/yumserver.crt'
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: create private dir in /etc/ssl
+      file:
+        path: /etc/ssl/private/
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: copy key file
+      copy:
+        src: '/etc/ssl/private/yumserver.key'
+        dest: '/etc/ssl/private/yumserver.key'
+        owner: root
+        group: root
+        mode: '0644'
+
+
+    - name: clear yum cache to pull latest
+      shell: 'yum clean all'
+      register: yop
+
+    - name: display yop
+      debug:
+        var: yop

@@ -1,0 +1,9 @@
+#!/bin/bash
+# Setting epoch date as below dummy variable for first time 
+patch_version_var='01-01-1970'
+
+cat <<EOF
+{
+    "patch_ver" : "$patch_version_var"
+}
+EOF

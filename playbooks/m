@@ -1,0 +1,7 @@
+[cloudvm]
+centos7
+centos12
+centos22
+
+[newly_added_vm]
+centos22

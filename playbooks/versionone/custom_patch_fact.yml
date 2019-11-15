@@ -1,0 +1,18 @@
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: set cusotm facts directory on remote servers
+      file:
+        path: /etc/ansible/facts.d
+        recurse: yes
+        state: directory
+
+    - name: copy our custom facts to remote servers
+      template:
+        src: '/home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/custom_files/patch.fact'
+        dest: '/etc/ansible/facts.d/patch.fact'
+        mode: '0775'
+
+    - name: reload our custom facts
+      setup: filter=ansible_local

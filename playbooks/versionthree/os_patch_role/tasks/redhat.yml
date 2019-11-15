@@ -1,0 +1,63 @@
+    - name: prompt whether to continue this script or not
+      pause:
+        prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
+
+    - name: Broadcast message to all logged in users reminding of patching
+      script: ../scripts/wall.sh
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+    - name: wait for 2 minutes to start patching
+      wait_for:
+        timeout: 120
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+    #- name: do a safe reboot before patching
+     # reboot:
+      #  msg: 'This server is going under maintenance for OS Patching'
+       # reboot_timeout: 600
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+      
+    - name: start patching
+      yum:
+        name: '*'
+        state: latest
+        update_cache: yes
+        validate_certs: no
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+    
+    #- name: Rebooting after patches has been installed 
+     # reboot:
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+    - name: wait till system is live
+      wait_for_connection:
+        delay: 5
+        timeout: 1800
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+   
+
+    #- name: display time
+     # shell: uptime
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+      #register: di
+
+    #- name: display di
+     # debug:
+      #  var: di
+    
+    - name: set our custom facts to reflect patch update version number
+      template:
+        #src: '/home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/custom_files/patch.fact' 
+        src: main.yml 
+        dest: '/etc/ansible/facts.d/patch.fact'
+        mode: '0775'
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+    - name: reload our custom facts
+      setup: filter=ansible_local
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+    - name: display local custom fact
+      debug:
+        msg: "your Server is patched and Current patch version is ----> {{ ansible_local.patch.patch_ver }}"
+      #when: (ansible_local['patch']['patch_ver'] !=  current_patch)

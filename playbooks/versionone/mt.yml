@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: no
+  vars:
+    vers: 12
+  tasks:
+    - name: copy this file to that location
+      template:
+         src: 'templates/two.etc'
+         dest: '/home/prav/two'
+         mode: '0644'

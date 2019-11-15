@@ -1,0 +1,11 @@
+    #- name: prompt whether to continue this script or not
+     # pause:
+        #prompt: "This playbooks patches linux servers! Press Enter to continue or Ctrl+c and a to abort"
+       # prompt: "{{ patch_prompt_message }}"
+
+    - name: Server patch level info
+      debug:
+        #msg: "Linux Server {{ ansible_facts.ansible_fqdn }}  is at latest patch version ----> {{ ansible_local.patch.patch_ver }}. No package from repo to update at this time"
+        #msg: "Linux Server {{ ansible_hostname }}  is at latest patch version ----> {{ ansible_local.patch.patch_ver }}. No package from repo to update at this time"
+        msg: "Linux Server {{ ansible_fqdn }}  is at latest patch version ----> {{ ansible_local.patch.patch_ver }}. No package from repo to update at this time"
+

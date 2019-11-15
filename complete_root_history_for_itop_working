@@ -1,0 +1,1000 @@
+   42  ll|grep mail
+   43  cat /etc/logrotate.conf 
+   44  cd /etc/logrotate.d/
+   45  ls
+   46  cat *|grep rotate
+   47  clear
+   48  cat bootlog 
+   49  cat *|grep -i size
+   50  ls
+   51  cat chrony 
+   52  cat cyrus-imapd 
+   53  cat httpd 
+   54  cat iscsiuiolog 
+   55  cat named 
+   56  cat samba 
+   57  cat sssd
+   58  cat syslog
+   59  cat wpa_supplicant
+   60  cat syslog 
+   61  ls -l /var/log/cron*
+   62  ls -l /var/log/maillog
+   63  less /var/log/messages
+   64  ls -l /var/log/messsage*
+   65  ls -l /var/log/messsages
+   66  ls -l /var/log/mess*
+   67  ls -l /var/log/secure*
+   68  ls -l /var/log/spooler*
+   69  file /var/log/secure-20191103
+   70  less /var/log/secure-20191103
+   71  tail -n 10 /var/log/secure-20191103
+   72  cat /etc/logrotate.conf 
+   73  logrotate --help
+   74  cat /etc/cron.daily/logrotate 
+   75  cat /var/lib/logrotate/logrotate.status
+   76  exit
+   77  systemctl status ntp
+   78  systemctl status ntpd
+   79  systemctl status chronyd
+   80  timedatectl
+   81  date
+   82  timedatectl set-ntp false
+   83  echo $?
+   84  date
+   85  timedatectl 
+   86  date
+   87  pvs
+   88  vgcreate /dev/sdb 
+   89  pvcreate /dev/sdb
+   90  pvcreate /dev/sdc
+   91  pvs
+   92  vgcreate vg01 /dev/sdb 
+   93  vgs
+   94  lvcreate -n lvsq -L 10G vg01
+   95  cat /etc/redhat-release 
+   96  mkfs.xfs /dev/vg01/lvsq
+   97  mkdir -p /opt/mysql
+   98  vi /etc/fstab 
+   99  mount -a
+  100  exit
+  101  c
+  102  yum provides mysql-*
+  103  df -hTP
+  104  ln -s /opt/mysql /var/lib/mysql
+  105  df -hTP
+  106  cd /var/lib/
+  107  file mysql/
+  108  ls -ld  mysql/
+  109  file  mysql
+  110  file  mysql/
+  111  file  mysql
+  112  df -hTP /opt/mysql/
+  113  yum install -y mysql-server mysql
+  114  ls
+  115  cd mysql/
+  116  ls
+  117  timedatectl
+  118  history|grep set
+  119  ls
+  120  yum provides /var/lib/mysql/
+  121  ls
+  122  yum provides /etc/my.cnf
+  123  yum info mariadb
+  124  yum info mariadb-server
+  125  yum install -y mariadb-server mariadb
+  126  systemctl status chronyd
+  127  systemctl status chrony
+  128  c
+  129  ls
+  130  cd /var/lib/mysql/
+  131  ls
+  132  rpm -qa|grep maria*
+  133  yum install -y mysql mysql-server
+  134  yum install -y httpd php php-mysql php-xml php-cli php-soap php-ldap php-gd php-zip php-json php-mbstring graphviz
+  135  systemctl status mariadb
+  136  systemctl start mariadb
+  137  journalctl -xe
+  138  cd /var/lib/mysql/
+  139  ls
+  140  ls -ltr
+  141  systemctl status mariadb
+  142  systemctl is-enabled mariadb
+  143  systemctl enable mariadb
+  144  systemctl restart mariadb
+  145  systemctl status -l  mariadb
+  146  cd /var/lib/mysql/
+  147  ss -tulpn|grep 3306
+  148  id mysql
+  149  ls -ltr
+  150  cd .
+  151  cd ..
+  152  ls -ld mysql
+  153  chown mysql:mysql mysql
+  154  ls -ld mysql
+  155  cd /opt/mysql/
+  156  ls
+  157  ls -ltr
+  158  cd ..
+  159  chown mysql:mysql mysql/
+  160  ls -ltr
+  161  systemctl restart mariadb
+  162  journalctl -xe
+  163  c
+  164  rpm -qa|grep mariadb
+  165  yum remove -y mariadb-5.5.64-1.el7.x86_64 mariadb-libs-5.5.64-1.el7.x86_64 mariadb-server-5.5.64-1.el7.x86_64
+  166  systemctl start mariadb
+  167  c
+  168  cd mysql/
+  169  yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+  170  yum -y install mysql-community-server
+  171  systemctl status mysqld
+  172  systemctl start mysqld
+  173  systemctl status mysqld
+  174  cd /var/lib/mysql
+  175  ls
+  176  ls ltr
+  177  ls -ltr
+  178  cd /opt/mysql/
+  179  ls -ltr
+  180  df -hTP .
+  181  cd /var/lib/
+  182  cd mysql
+  183  ls
+  184  cd ..
+  185  file mysql
+  186  pwd
+  187  systemctl stop mysqld
+  188  ln -s /opt/mysql /var/lib/mysql
+  189  cd mysql
+  190  ls
+  191  file mysql/
+  192  file mysql
+  193  cd ..
+  194  cd lib/
+  195  rm -rf mysql
+  196  cd /opt/mysql/
+  197  ls
+  198  rm -rf *
+  199  ls
+  200  cd ..
+  201  umount mysql/
+  202  vi /etc/fstab 
+  203  lvremove -y /dev/mapper/vg01-lvsq 
+  204  lvcreate -n lvsq -L 10GB vg01
+  205  mkfs.xfs /dev/mapper/vg01-lvsq 
+  206  df -hTP
+  207  umount /opt/mysql/
+  208  df -hTP
+  209  mkfs.xfs /dev/mapper/vg01-lvsq 
+  210  lvremove /dev/mapper/vg01-lvsq 
+  211  mount -a
+  212  lvcreate -n lvsq -L 10GB vg01
+  213  mkfs.xfs /dev/vg01/lvsq
+  214  lvremove /dev/vg01/lvsq 
+  215  cd
+  216  cat /etc/fstab 
+  217  vi /etc/fstab 
+  218  df -hTP
+  219  umount /opt/mysql/
+  220  mount -a
+  221  df -hTP
+  222  lvremove /dev/mapper/vg01-lvsq 
+  223  pvs
+  224  vgs
+  225  lvcreate -n lvs -L 10Gb vg01
+  226  mkfs.xfs /dev/vg01/lvs
+  227  vi /etc/fstab 
+  228  mount -a
+  229  cd /opt
+  230  rm -rf mysql
+  231  mkdir -p mysql_fs
+  232  mount -a
+  233  df -hTP
+  234  chown mysql:mysql /opt/mysql_fs
+  235  yum history
+  236  yum history undo 28
+  237  yum history
+  238  yum history redo 28
+  239  ls
+  240  cd mysql_fs/
+  241  ls
+  242  cd ..
+  243  ls -ltr
+  244  cd ..
+  245  cd opt/
+  246  ls
+  247  yum repolist
+  248  clear
+  249  ls
+  250  cd /var/lib/
+  251  ln -s /opt/mysql_fs/ /var/lib/mysql
+  252  file mysql/
+  253  file mysql
+  254  cd /opt/mysql_fs/
+  255  ls
+  256  history
+  257  yum history redo 28
+  258  ls
+  259  cd ..
+  260  ls
+  261  cd /var/lib/
+  262  ls
+  263  cd mysql
+  264  ls
+  265  cd ..
+  266  file mysql
+  267  systemctl status mysqld
+  268  systemctl start mysqld
+  269  journalctl -xe
+  270  systemctl status mysqld
+  271  systemctl status -l mysqld
+  272  cd mysql
+  273  ls
+  274  cd ..
+  275  file mysql
+  276  cd mysql
+  277  ls
+  278  journalctl -xe
+  279  df -hTP /opt/mysql_fs/
+  280  ls -ld /opt/mysql_fs/
+  281  sudo su - mysql
+  282  id mysql
+  283  grep -i sql /etc/passwd
+  284  cd /var/lib/mysql
+  285  ls
+  286  which mysqld
+  287  /sbin/mysqld --initialize
+  288  ls
+  289  rm -rf *
+  290  /sbin/mysqld --initialize
+  291  echo $?
+  292  systemctl status  mysqld
+  293  systemctl restart mysqld
+  294  journalctl -xe
+  295  getent passwd mysql
+  296  yum repolist
+  297  cat /etc/yum.repos.d/mysql-community.repo 
+  298  ls
+  299  rm -rf *
+  300  cat /etc/shadow
+  301  sudo userdel mysql
+  302  getent passwd mysql
+  303  grep mysql /etc/shadow
+  304  grep mysql /etc/passwd
+  305  ls
+  306  pwd
+  307  ls
+  308  cd ..
+  309  file mysql
+  310  cd /opt/mysql_fs/
+  311  ls
+  312  yum history
+  313  yum history redo 2
+  314  systemctl status myql
+  315  systemctl status mysql
+  316  wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+  317  ls
+  318  rm mysql-community-release-el7-5.noarch.rpm 
+  319  ls
+  320  yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+  321  ls
+  322  yum -y install mysql-community-server
+  323  ls
+  324  cd /var/lib/mysql
+  325  ls
+  326  id mysql
+  327  getent passwd mysql
+  328  systemctl status mysqld
+  329  systemctl start mysqld
+  330  systemctl status mysqld
+  331  ls
+  332  pwd
+  333  cd /opt/mysql_fs/
+  334  ls
+  335  cd ..
+  336  cd /var/lib/
+  337  ls
+  338  file mysql
+  339  cd mysql
+  340  df -hTP .
+  341  ls
+  342  systemctl status mysqld
+  343  systemctl enable mysqld
+  344  netstat -tulpn|grep 3306
+  345  cat /etc/my.cnf
+  346  systemctl is-enabled mysqld
+  347  systemctl status mysqld
+  348  systemctl stop mysqld
+  349  cp -R -p /var/lib/mysql /opt/mysql_fs
+  350  cd /opt/mysql_fs/
+  351  ls
+  352  cd mysql/
+  353  ls
+  354  pwd
+  355  cd ..
+  356  rsync -arvzX /var/lib/mysql/ /opt/mysql_fs
+  357  ls -ldZ /var/lib/mysql
+  358  ls -ldZ /opt/mysql_fs
+  359  cd /opt/mysql_fs/
+  360  ls -ldZ
+  361  cd mysql/
+  362  ls
+  363  pwd
+  364  du -sh /var/lib/mysql
+  365  du -sh /opt/mysql_fs/
+  366  pwd
+  367  ls
+  368  rm -rf *
+  369  history|grep rsync
+  370  rsync -arvzX /var/lib/mysql/ /opt/mysql_fs
+  371  du -sh /opt/mysql_fs/
+  372  du -sh /var/lib/mysql
+  373  df -hTP 
+  374  ls -ldZ /var/lib/mysql
+  375  ls -ldZ /opt/mysql_fs/
+  376  ls -ldZ /opt/mysql_fs/mysql/
+  377  ls -ldZ /opt/mysql_fs/mysql
+  378  pwd
+  379  ls
+  380  du -sh /opt/mysql_fs/mysql
+  381  du -sh /opt/mysql_fs/mysql/
+  382  du -sh /opt/mysql_fs/
+  383  pwd
+  384  cd ..
+  385  ls
+  386  cd /var/lib/
+  387  ls
+  388  vi /etc/my.cnf
+  389  cd /opt/mysql_fs/mysql/
+  390  pwd
+  391  vi /etc/my.cnf
+  392  systemctl status mysqld
+  393  systemctl start mysqld
+  394  journalctl -xe
+  395  c
+  396  journalctl -xe
+  397  vi /etc/my.cnf
+  398  systemctl restart mysqld
+  399  journalctl -xe
+  400  ls
+  401  rm -rf *
+  402  ls
+  403  pwd
+  404  cd ..
+  405  ls
+  406  systemctl restart mysqld
+  407  ls
+  408  rm -rf *
+  409  mkdir mysql
+  410  ls
+  411  cd mysql/
+  412  ls
+  413  pwd
+  414  cd ..
+  415  ls
+  416  cd mysql/
+  417  ls
+  418  rm -rf *
+  419  ls
+  420  cd ..
+  421  pwd
+  422  cd mysql/
+  423  ls
+  424  cd ..
+  425  ls
+  426  cd mysql/
+  427  ls
+  428  systemctl restart mysql
+  429  systemctl restart mysqld
+  430  journalctl -xe
+  431  pwd
+  432  cd ..
+  433  pwd
+  434  rm *
+  435  rm -rf *
+  436  ls
+  437  pwd
+  438  mkdir mysql
+  439  ls -ldZ mysql
+  440  chown --reference=/var/lib/mysql /opt/mysql_fs/mysql
+  441  chmod --reference=/var/lib/mysql /opt/mysql_fs/mysql
+  442  cat /etc/my.cnf
+  443  vi /etc/my.cnf
+  444  systemctl stop mysqld
+  445  systemctl start mysqld
+  446  systemctl stop mysqld
+  447  ls
+  448  cd mysql/
+  449  ls
+  450  pwd
+  451  rm -rf *
+  452  ls
+  453  pwd
+  454  cd ..
+  455  ls -ldZ
+  456  ls -ldZ mysql/
+  457  ls -ldZ mysql
+  458  pwd
+  459  rm -rf mysql/
+  460  pwd
+  461  mkdir mysql
+  462  ls -ldZ mysql
+  463  cp -rp /var/lib/mysql/* mysql/
+  464  vi /etc/my.cnf
+  465  ls -ldZ /opt/mysql_fs/
+  466  ls -ldZ /opt/mysql_fs/mysql/
+  467  ls -ldZ /opt/mysql_fs/mysql/*
+  468  ls -ld /opt/mysql_fs/
+  469  ls -ld /var/lib/mysql
+  470  systemctl stop mysqld
+  471  systemctl start mysqld
+  472  systemctl status mysqld
+  473  journalctl -xe
+  474  vi /etc/my.cnf
+  475  ls
+  476  rm -rf *
+  477  ls
+  478  df -hTP
+  479  cd /var/lib/
+  480  ls
+  481  ls -ldZ mysql
+  482  cd mysql
+  483  ls
+  484  rm -rf *
+  485  cd ..
+  486  rm -rf mysql
+  487  ln -s /opt/mysql_fs/ /var/lib/mysql
+  488  file mysql
+  489  vi /etc/my.cnf
+  490  systemctl start mysqld
+  491  journalctl -xe
+  492  rm -rf mysql
+  493  ls
+  494  userdel mysql
+  495  userdel mysqld
+  496  cd /opt/mysql_fs/
+  497  ls
+  498  rm -rf *
+  499  ls
+  500  cd ..
+  501  ls -ldZ mysql_fs/
+  502  sestatus
+  503  setenforce 0
+  504  sestatus
+  505  vi /etc/sysconfig/selinux 
+  506  cat /etc/sysconfig/selinux 
+  507  sestatus
+  508  df -hTP
+  509  cd /var/lib/
+  510  id mysql
+  511  yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+  512  yum install mysql-community-server -y
+  513  vi /etc/fstab 
+  514  id sql
+  515  yum history
+  516  yum history undo 31
+  517  yum history undo 30
+  518  vi /etc/fstab 
+  519  df -hTP
+  520  umount /opt/mysql_fs/
+  521  mount -a
+  522  mkdir mysql
+  523  mount -a
+  524  df -hTP
+  525  history
+  526  yum install mysql-community-server -y
+  527  id mysql
+  528  grep -i mysql /etc/passwd
+  529  df -hTP mysql
+  530  ls -ld mysql
+  531  grep 'A temporary password' /var/log/mysqld.log |tail -1
+  532  systemctl mysqld start
+  533  systemctl start mysql
+  534  systemctl start mysqld
+  535  cd mysql
+  536  ls
+  537  df -hTP
+  538  cat /etc/fstab 
+  539  systemctl is-enabled mysql
+  540  systemctl is-enabled mysqld
+  541  systemctl status mysqld
+  542  mysqld --version
+  543  mysqld
+  544  /usr/bin/mysql_secure_installation 
+  545  /usr/bin/mysql_secure_installation --help
+  546  grep 'A temporary password' /var/log/mysqld.log |tail -1
+  547  /usr/bin/mysql_secure_installation 
+  548  ss -tulpn|grep 3306
+  549  c
+  550  ss -tulpn|grep 3306
+  551  ps -ef|grep 8918
+  552  mysql -h localhost -u root -p
+  553  mysql -V
+  554  df -hTP
+  555  ls -ld /var/lib/mysql
+  556  mysqld
+  557  mysql
+  558  exit
+  559  yum install php php-mysql php-xml php-cli php-soap php-ldap php-gd php-zip php-json php-mbstring graphviz -y
+  560  yum install -y httpd
+  561  systemctl start httpd
+  562  systemctl stats httpd
+  563  systemctl status httpd
+  564  c
+  565  vim /etc/php.ini 
+  566  vi /etc/php.ini 
+  567  grep -i max /etc/php.
+  568  grep -i max /etc/php.ini 
+  569  grep -i 32 /etc/php.ini 
+  570  grep -i 'post_max' /etc/php.ini 
+  571  systemctl status httpd
+  572  systemctl enable httpd
+  573  ls
+  574  wget https://sourceforge.net/projects/itop/files/itop/2.6.1/iTop-2.6.1-4463.zip
+  575  cd /var/www/html/
+  576  ls
+  577  unzip ~/iTop-2.6.1-4463.zip 
+  578  yum install -y unzip
+  579  unzip ~/iTop-2.6.1-4463.zip 
+  580  chown -R apache:apache .
+  581  rm -f *
+  582  ls
+  583  mv web/* .
+  584  rmdir web
+  585  c
+  586  ls
+  587  systemctl get-default
+  588  l
+  589  exit
+  590  systemctl get-default
+  591  systemctl isolate graphical.target
+  592  systemctl get-default
+  593  systemctl set-default graphical.target
+  594  reboot
+  595  systemctl get-de
+  596  systemctl get-default
+  597  yum group list
+  598  yum groupinstall "GNOME Desktop" "Graphical Administration Tools" -y
+  599  systemctl get-def
+  600  systemctl get-default
+  601  reboot
+  602  c
+  603  systemctl status sqld
+  604  systemctl status mysqld.service 
+  605  systemctl status httpd
+  606  cd /var/www/html/
+  607  ls
+  608  cd setup/
+  609  cat index.php 
+  610  curl -v http://localhost
+  611  cat /etc/hosts
+  612  vi /etc/hosts
+  613  cd /var/www/html/
+  614  ls
+  615  ip a
+  616  curl -vvv http://192.168.209.134/setup/index.php
+  617  curl -vvv http://localhost/setup/index.php
+  618  cd
+  619  unzip iTop-2.6.1-4463.zip 
+  620  cp -rf web/ /var/www/html/itop
+  621  cd /var/www/html/
+  622  ls
+  623  df -hTP .
+  624  df -hTP
+  625  mv repos/ ~/
+  626  ls
+  627  rm -rf *
+  628  ls
+  629  cp -rf ~/web/ itop
+  630  ls
+  631  cd itop/
+  632  ls
+  633  cd /var/www/html/itop/
+  634  ls
+  635  mkdir conf data env-production log
+  636  chmod -R 777 conf/ data env-production/ log/
+  637  ls -ltr
+  638  systemctl restart httpd
+  639  cd setup/
+  640  ls
+  641  cat index.php 
+  642  c
+  643  cat index.php 
+  644  cd /var/log/httpd/
+  645  ls
+  646   ls -ltr
+  647  less access_log 
+  648  ls -ltr
+  649  less error_log
+  650  curl -vv http://localhost/itop/setup/index.php
+  651  ls -ltr
+  652  curl -vv http://localhost/itop/setup/index.php
+  653  ls -ltr
+  654  tail -f access_log 
+  655  c
+  656  tail -f error_log
+  657  php --version
+  658  which php
+  659  php -V
+  660  php -v
+  661  yum provides /bin/php
+  662   rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
+  663   rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+  664  rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+  665   yum remove php-common
+  666  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  667  systemctl restart php
+  668  systemctl restart httpd
+  669  php -v
+  670  cd /var/www/html/
+  671  cd itop/
+  672  mkdir env-production-build
+  673  chmod 777 env-production-build/
+  674  cd ..
+  675  chmod 777 itop
+  676  ls
+  677  systemctl restart httpd
+  678  yum install -y php56w php56w-soap
+  679  systemctl restart httpd
+  680  yum install -y php56w php56w-ldap
+  681  systemctl restart httpd
+  682  nproc
+  683  top
+  684  c
+  685  ps -ef|grep firefox
+  686  kill -9 2702
+  687  ps -ef|grep fire
+  688  kill -9 3682
+  689  poweroff
+  690  c
+  691  cd /var/www/html/
+  692  ls
+  693  cd itop/
+  694  ls
+  695  cd setup/
+  696  ls
+  697  cat index.php 
+  698  pwd
+  699  c
+  700  curl -vvv http:://localhost/itop/setup/index.php
+  701  curl -vvv http://localhost/itop/setup/index.php
+  702  curl -vvv http://ms/itop/setup/index.php
+  703  vi /etc/hosts
+  704  v
+  705  c
+  706  cat /etc/hosts
+  707  rpm -qa|grep mysql
+  708  mysql -V
+  709  hostname
+  710  hostname -f
+  711  ping ms.chintu.com
+  712  ping ms
+  713  firefox
+  714  type -a firefox
+  715  /usr/bin/firefox --new-window http://www.cyberciti.biz/
+  716  c
+  717  history|grep mysql
+  718  mysql -h localhost -u root -p
+  719  mysql -h localhost -u chintudb -p
+  720  rpm -qa|grep php
+  721  php -i
+  722  rpm -qa|grep php5
+  723  mysql -V
+  724  history|grep php5
+  725  yum install -y php56w-mysqlnd
+  726  yum remove -y php56w-mysql-5.6.40-1.w7.x86_64
+  727  yum install -y php56w-mysqlnd
+  728  mysql -V
+  729  rpm -qa|grep php
+  730  df -hTP
+  731  cd /var/log/httpd/
+  732  ls
+  733  ls -ltr
+  734  date
+  735  tail -f access_log 
+  736  c
+  737  ls
+  738  cd /var/www/html/itop/
+  739  ls
+  740  ls -ltr
+  741  cd env-production
+  742  ls
+  743  ls -ltr
+  744  cd itop-welcome-itil/
+  745  ls
+  746  ls -ltr
+  747  tail -f welcomemenupage_dashboard.xml 
+  748  yum provides php5-mysqlnd
+  749  rpm -qa|grep mysqlnd
+  750  mysql -V
+  751  yum install -y php56w-mysqlnd-5.6.40-1.w7.x86_64
+  752  yum remove -y php56w-mysqlnd-5.6.40-1.w7.x86_64
+  753  yum remove -y php56w-mysqlnd-5.7.28
+  754  rpm -qa|grep php5
+  755  cat /etc/yum.repos.d/webtatic-archive.repo 
+  756  systemctl stop httpd
+  757  systemctl start httpd
+  758  mysql -V
+  759  yum install -y php5-mysqlnd
+  760  yum install -y php56w-mysqlnd
+  761  yum list |grep php56w*
+  762  yum install -y php56w-mysql
+  763  yum remove -y php56w-mysqlnd
+  764  yum install -y php56w-mysql
+  765  systemctl restart httpd
+  766  cd /var/www/html/itop/
+  767  cd co
+  768  cd core/
+  769  vi cmdbsource.class.inc.php 
+  770  php -i
+  771  mysql -V
+  772  rpm -q|grep  php56
+  773  rpm -q|grep  php56*
+  774  rpm -q|grep  php5
+  775  rpm -qa|grep php56w*
+  776  yum -y install epel-release
+  777  yum-config-manager --enable remi-php72
+  778  yum install -y php
+  779  yum history
+  780  rpm -qa|grep php56*
+  781  yum remove -y php56*
+  782  yum install -y php
+  783  yum remove -y php
+  784  yum remove -y php72
+  785  yum install -y php72
+  786   sudo yum-config-manager --enable remi-php72
+  787  ps -ef|grep yum
+  788  yum search php72
+  789  yum install -y php72*
+  790  yum remove -y php-common-5.4.16-46.1.el7_7.x86_64
+  791  yum install -y php72*
+  792  systemctl restart httpd
+  793  pwd
+  794  s
+  795  ls
+  796  ls -ltr
+  797  date
+  798  yum remove -y php72*
+  799  systemctl status httpd
+  800  yum remove -y php72*
+  801  rpm -qa|grep php
+  802  rpm -qa|grep php*
+  803  history
+  804  yum history
+  805  rpm -qa|grep php
+  806  yum install -y php72*
+  807  which php
+  808  yum install -y php72
+  809  sudo yum install php72-php-fpm php72-php-gd php72-php-json php72-php-mbstring php72-php-mysqlnd php72-php-xml php72-php-xmlrpc php72-php-opcache -y
+  810  yum install -y php72w
+  811  systemctl restart httpd
+  812  yum remove -y php72w*
+  813  c
+  814  php -v
+  815  php -V
+  816  yum install -y php72w*
+  817  yum install -y php72w* --skip-broken
+  818  whcih php
+  819  which php
+  820  systemctl restart httpd
+  821  yum remove -y php72w* --skip-broken
+  822  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  823  systemctl restart httpd.service
+  824  php -v
+  825  php -V
+  826  yum remove -y mod_php72w-7.2.24-1.w7.x86_64 mod_php72w-7.2.24-1.w7.x86_64
+  827  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  828  php -V
+  829  php -v
+  830  systemctl stop httpd
+  831  systemctl start httpd
+  832  systemctl stop httpd
+  833  yum remove -y  php56w*
+  834  which php
+  835  yum install -y php72w*
+  836  yum install -y php72w* --skip-broken
+  837  systemctl status httpd
+  838  which php
+  839  systemctl start httpd
+  840  systemctl restart httpd
+  841  curl -vvv http://localhost/itop/setup/index.php
+  842  yum remove -y php72w* --skip-broken
+  843  history
+  844  which php
+  845  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  846  which php
+  847  php -V
+  848  php -v
+  849  systemctl restart httpd
+  850  yum install -y php56w-mysql
+  851  yum install -y php56w-mysqlnd
+  852  yum remove -y php56w-mysql-5.6.40-1.w7.x86_64
+  853  yum remove -y php56w-mysqlnd
+  854  yum remove -y php56w-mysqlnd-5.6.40-1.w7.x86_64
+  855  yum install -y php56w-mysqlnd
+  856  systemctl stop httpd
+  857  systemctl start httpd
+  858  history
+  859  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  860  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring --skip-broken
+  861  yum remove -y php56w-mysqlnd-5.6.40-1.w7.x86_64
+  862  yum remove -y php56w-mysql
+  863  rpm -qa|grep php56
+  864  yum remove -y php56w*
+  865  history
+  866  systemctl stop httpd
+  867  yum install -y php72w* --skip-broken
+  868  yum install -y php72w-mysql
+  869  yum install -y php72w-mysqlnd
+  870  systemctl start httpd
+  871  systemctl restart httpd
+  872  history
+  873  yum remove -y php72w*
+  874  history
+  875  yum install -y php56w php56w-opcache php56w-xml php56w-mcrypt php56w-gd php56w-devel php56w-mysql php56w-intl php56w-mbstring
+  876  yum install -y php56w-mysqlnd
+  877  yum remove -y php56w-mysql-5.6.40-1.w7.x86_64
+  878  yum install -y php56w-mysqlnd
+  879  systemctl stop httpd
+  880  systemctl start httpd
+  881  which php
+  882  systemctl stop httpd
+  883  systemctl status httpd
+  884  curl -vvv http://localhost/itop/setup/index.php
+  885  systemctl restart httpd
+  886  systemctl status httpd
+  887  curl -vvv http://localhost/itop/setup/index.php
+  888  yum install -y php56w-soap
+  889  yum install -y php56w-ldap
+  890  systemctl restart httpd
+  891  history
+  892  nproc
+  893  free -h
+  894  free -g
+  895  free --help
+  896  c
+  897  free -h
+  898  ps -ef|grep httpd
+  899  ps -ef|grep itop
+  900  ip a
+  901  vi /etc/hosts
+  902  curl -vvv http://localhost
+  903  curl -vvv http://localhost/itop
+  904  c
+  905  ss -tulpn | grep 3306
+  906  vi /etc/hosts
+  907  systemctl stop httpd
+  908  systemctl start httpd
+  909  systemctl status httpd
+  910  apachectl configtest
+  911  vi /etc/hosts
+  912  ping ms
+  913  ping ms.chintu.com
+  914  curl -vvv http://192.168.209.135/itop/pages/UI.php
+  915  vi /etc/httpd/conf/httpd.conf 
+  916  systemctl restart httpd
+  917  apachectl configtest
+  918  vi /etc/httpd/conf/httpd.conf 
+  919  systemctl restart httpd
+  920  apachectl configtest
+  921  c
+  922  find / -iname 'google*'
+  923  cd /home/prav/Downloads/
+  924  ls
+  925  ls -ltr
+  926  yum install -y google-chrome-stable_current_x86_64.rpm 
+  927  c
+  928  curl -vvv http://192.168.209.135/itop/pages/UI.php
+  929  cd /var/www/html/
+  930  ls
+  931  cd itop/
+  932  ls
+  933  cd setup/
+  934  ls
+  935  cat index.php 
+  936  yum remove -y httpd
+  937  yum install -y nginx
+  938  systemctl start nginx
+  939  curl -vvv http://192.168.209.135/itop/pages/UI.php
+  940  yum remove -y nginx
+  941  yum install -y httpd
+  942  yum install -y php56w.x86_64 0:5.6.40-1.w7
+  943  systemctl start httpd
+  944  systemctl status httpd
+  945  grep 'NM_CONTROLLED' /etc/sysconfig/network-scripts/ifcfg-ens160
+  946  grep 'NM_CONTROLLED' /etc/sysconfig/network-scripts/ifcfg-ens33 
+  947  nmtui
+  948  systemctl stop httpd
+  949  c
+  950  cd /etc/sysconfig/network-scripts/
+  951  ls
+  952  cat ifcfg-ens33 
+  953  vi /etc/dhcp/dhclient.d/cd /etc/dhcp/dhclient
+  954  cd /etc/dhcp/dhclient.d/
+  955  ls
+  956  cd ..
+  957  cd /etc/dhcp/
+  958  vi dhclient.conf
+  959  systemctl status dhcp
+  960  dhclient -r -v
+  961  ip a
+  962  dhclient -4 -d -v -cf /etc/dhcp/dhclient.conf ens33
+  963  cat dhclient.conf 
+  964  vi dhclient
+  965  vi dhclient.conf 
+  966  dhclient -r -v
+  967  systemctl status httpd
+  968  systemctl staart httpd
+  969  systemctl start httpd
+  970  c
+  971  systemctl status httpd
+  972  cd /var/log/httpd/
+  973  ls
+  974  ls -ltr
+  975  tail -f access_log 
+  976  c
+  977  systemctl status mysqld
+  978  mysql -V
+  979  history|grep localhost
+  980  history|grep mysql
+  981  mysql -h localhost -u root
+  982  history|grep mysql
+  983  history|grep mysql|grep localhost
+  984  mysql -h localhost -u root -p
+  985  c
+  986  exit
+  987  c
+  988  r
+  989  c
+  990  nproc
+  991  free -g
+  992  c
+  993  echo $host
+  994  echo $hostname
+  995  echo `date`
+  996  date
+  997  `date`
+  998  c
+  999  echo `hostname`
+ 1000  exit
+ 1001  ls
+ 1002  php web/webservices/import.php --auth-user=admin --auth-password --csvfile="location.csv"
+ 1003  clear
+ 1004  cat /home/prav/Desktop/two.csv 
+ 1005  php web/webservices/import.php --auth-user=admin --auth-password=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1006  cd /var/www/html/
+ 1007  ls
+ 1008  cd itop/
+ 1009  ls
+ 1010  cat /root/web/conf/production/config-itop.php
+ 1011  cd webservices/
+ 1012  ls
+ 1013  php import.php --auth-user=admin --auth-password=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1014  php import.php --auth_user=admin --auth_password=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1015  c
+ 1016  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1017  cat /home/prav/Desktop/two.csv 
+ 1018  vi /home/prav/Desktop/two.csv 
+ 1019  cp /home/prav/Desktop/two.csv /home/prav/Desktop/two_org.csv
+ 1020  cat /home/prav/Desktop/two_org.csv
+ 1021  cat /home/prav/Desktop/two.csv
+ 1022  vi /home/prav/Desktop/two.csv
+ 1023  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1024  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=0 --class="Server"
+ 1025  vi /home/prav/Desktop/two.csv
+ 1026  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server"
+ 1027  c
+ 1028  cat /home/prav/Desktop/two
+ 1029  cat /home/prav/Desktop/two.csv 
+ 1030  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile="/home/prav/Desktop/two.csv" --charset="UTF-8" --no_localize=1 --class="Server" --reconcialiationkeys="name,organization->name"
+ 1031  c
+ 1032  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile=/home/prav/Desktop/two.csv --charset="UTF-8"  --class="Server" --reconcialiationkeys="name,organization->name"
+ 1033  c
+ 1034  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile=/home/prav/Desktop/four.csv --charset="UTF-8"  --class="Server" --reconcialiationkeys="name,organization->name"
+ 1035  cat /home/prav/Desktop/four.csv
+ 1036  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile=/home/prav/Desktop/two.csv --charset="UTF-8"  --class="Server" --reconcialiationkeys="name,organization->name"
+ 1037  clear
+ 1038  php import.php --auth_user=admin --auth_pwd=Saritha@123 --csvfile=/home/prav/Desktop/two.csv --charset="UTF-8"  --class="Server" --reconcialiationkeys="name,organization->name"
+ 1039  cat /home/prav/Desktop/two.csv
+ 1040  history
+ 1041  history >/home/prav/complete_root_history_for_itop_working

@@ -1,0 +1,11 @@
+# Main tasks playbook
+- name: include os specific playbook
+  import_tasks: r.yml
+  when: (ansible_facts['os_family']|lower == 'redhat') and (ansible_local['patch']['patch_ver'] ==  current_patch)
+
+- import_tasks: redhat.yml
+  #when: ansible_facts['os_family']|lower == 'redhat' 
+  #when: (ansible_facts['os_family']|lower == 'redhat') and (ansible_local['patch']['patch_ver'] !=  current_patch)
+  when: (ansible_facts['os_family']|lower == 'redhat') and (ansible_local['patch']['patch_ver'] !=  current_patch)
+
+

@@ -1,0 +1,4 @@
+# Main tasks playbook
+- name: include os specific playbook
+  import_tasks: r.yml
+
