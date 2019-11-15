@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run details script on servers
+      script: ../scripts/one.sh
+      register: op
+    
+    - name: display debug
+      debug:
+        var: op
+
+    - name: fetch details files from remote servers to control server
+      fetch:
+        src: /home/prav/details.csv
+        #dest: /home/prav/rd/{{ inventory_hostname }}
+        dest: /home/prav/rd/
