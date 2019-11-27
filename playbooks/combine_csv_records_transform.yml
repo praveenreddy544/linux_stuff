@@ -7,7 +7,7 @@
 
     - name: import combined csv to itop
       shell:
-        cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/combined_csv_records/combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name,organization->name,description,ram,cpu,os family->name,os version->name"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
+        cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/combined_csv_records/combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name,organization->name,description,ram,cpu,os family->name,os version->name,notes,business_criticity,status,ip"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
       register: import_job_status
 
     - name: display import output

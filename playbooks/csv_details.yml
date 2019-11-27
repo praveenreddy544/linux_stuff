@@ -1,9 +1,22 @@
 - hosts: all
   gather_facts: no
+  become: yes
   tasks:
+    - name: copy itop data import scripts to remote
+      copy:
+        src: '/home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/scripts/itop_data_import_specific_scripts'
+        dest: /tmp/
+        owner: root
+        group: root
+        mode: '0755'
+
     - name: Run details script on servers
-      script: ../scripts/one.sh
+      shell: 'bash /tmp/itop_data_import_specific_scripts/modified_data_import.sh'
+      args:
+        chdir: /tmp
+        executable: /bin/bash
       register: op
+     
     
     - name: display debug
       debug:
@@ -11,6 +24,6 @@
 
     - name: fetch details files from remote servers to control server
       fetch:
-        src: /home/prav/details.csv
+        src: /tmp/details.csv
         #dest: /home/prav/rd/{{ inventory_hostname }}
-        dest: /home/prav/rd/
+        dest: /tmp/rd/

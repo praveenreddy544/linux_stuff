@@ -8,12 +8,15 @@ fi
  
 mv /home/prav/combined_csv_records/combined /home/prav/combined_csv_records/combined_$(date +%F-%H-%M-%S)
 if [ $? -eq 0 ];then
-cat /home/prav/rd/*/home/prav/details.csv >/home/prav/combined_csv_records/combined
+cat /tmp/rd/*/tmp/details.csv >/home/prav/combined_csv_records/combined
 if [ $? -eq 0 ];then
-    a=$'"Name","Organization->Name","RAM","CPU","Description","OS family->Name","OS version->Name","Business criticality","Status"'
+    a=$'"Name","Organization->Name","RAM","CPU","Description","Detailed Info","OS family->Name","OS version->Name","Business criticality","Status","Primary IP"'
+    #a=$'"Name","Organization->Name","RAM","CPU","Description","OS family->Name","OS version->Name","Business criticality","Status"'
     egrep -w "^${a}" /home/prav/combined_csv_records/combined
     if [ $? -ne 0 ];then
-        b=$(echo $'"Name","Organization->Name","RAM","CPU","Description","OS family->Name","OS version->Name","Business criticality","Status"')
+        #b=$(echo $'"Name","Organization->Name","RAM","CPU","Description","OS family->Name","OS version->Name","Business criticality","Status"')
+        #b=$(echo $'"Name","Organization->Name","RAM","CPU","Description","OS family->Name","OS version->Name","Virtual host->Name","Business criticality","Status","IP"')
+        b=$(echo $'"Name","Organization->Name","RAM","CPU","Description","Detailed Info","OS family->Name","OS version->Name","Business criticality","Status","Primary IP"')
         sed  -i "1i $b" $source
     fi
 fi

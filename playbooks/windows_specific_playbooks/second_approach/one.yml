@@ -1,0 +1,50 @@
+- hosts: all
+  gather_facts: no
+  vars_files:
+    - win_vars.yml
+  vars_prompt:
+    - name: ansible_user
+      prompt: Enter your AD username
+      private: no
+    - name: ansible_password
+      prompt: Enter your AD password
+  tasks:
+    - name: create venafi test directory
+      win_file:
+        path: C:\Users\praveen\Desktop\itop_stuff\
+        state: directory
+
+    - name: create venafi test directory
+      win_file:
+        path: C:\Users\praveen\Desktop\itop_stuff\dataholder
+        state: touch
+
+    - name: copy this script on windows
+      win_copy:
+        src: scripts/one.ps1
+        dest: C:\Users\praveen\Desktop\itop_stuff\onescript.ps1
+
+    - name: execute script
+      #win_shell: C:\Users\praveen\Desktop\itop_stuff\onescript.ps1 > C:\Users\praveen\Desktop\itop_stuff\output chdir=C:\Users\praveen\Desktop\itop_stuff\
+      win_shell: C:\Users\praveen\Desktop\itop_stuff\onescript.ps1
+      register: dat
+
+    - name: dispaly dat 
+      debug:
+        var: dat
+    
+    - name: run log lines to log file
+      win_lineinfile:
+        path: C:\Users\praveen\Desktop\itop_stuff\dataholder
+        line: "{{ item }}"
+      with_items: "{{ dat.stdout_lines }}"
+
+    - name: fetch adtaholder file
+      fetch:
+        src: C:\Users\praveen\Desktop\itop_stuff\dataholder
+        dest: /tmp/to/
+
+        
+        
+        
+        
