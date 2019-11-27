@@ -1,7 +1,7 @@
 - hosts: all
   gather_facts: no
   vars_files:
-    - win_vars.yml
+    - vars_for_windows.yml
   vars_prompt:
     - name: ansible_user
       prompt: Enter your AD username
@@ -9,12 +9,17 @@
     - name: ansible_password
       prompt: Enter your AD password
   tasks:
-    - name: create venafi test directory
+    - name: create  itop  directory
       win_file:
         path: C:\Users\praveen\Desktop\itop_stuff\
         state: directory
 
-    - name: create venafi test directory
+    - name: copy ip script
+      win_copy:
+        src: files/all_ips_info.ps1
+        dest: C:\Users\praveen\Desktop\itop_stuff\one.ps1
+
+    - name: create dataholder file
       win_file:
         path: C:\Users\praveen\Desktop\itop_stuff\dataholder
         state: touch

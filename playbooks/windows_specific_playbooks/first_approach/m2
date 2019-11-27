@@ -1,0 +1,9 @@
+[win]
+wincuram2
+
+[win:vars]
+ansible_user=praveen
+ansible_port=5985
+ansible_password=Saritha@123
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

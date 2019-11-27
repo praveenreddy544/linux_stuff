@@ -3,12 +3,12 @@
   become: yes
   tasks:
     - name: run script on local host
-      shell: ../scripts/combine_csv_add_headers.sh
+      shell: /home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/scripts/windows_specific_combine_csv_add_headers.sh
 
     - name: import combined csv to itop
       shell:
         #cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/combined_csv_records/combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name,organization->name,description,ram,cpu,os family->name,os version->name,notes,business_criticity,status,ip"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
-        cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/combined_csv_records/combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name, org_id->name, ram, cpu, description, notes, osfamily_id->name, osversion_id->name, business_criticity, status, assignedipsinfo"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
+        cmd: php /var/www/html/itop/webservices/import.php --auth_user=chintu --auth_pwd=chintu --csvfile=/home/prav/windows_combined_csv_records/windows_combined --charset="UTF-8" --class="Server" --reconcialiationkeys="name, org_id->name, ram, cpu, description, notes, osfamily_id->name, osversion_id->name, business_criticity, status, assignedipsinfo"| tr -d '#' | egrep -i "issues|warnings|created|updated|unchanged" | sed 's/:/ are -->/g'
       register: import_job_status
 
     - name: display import output
@@ -29,5 +29,5 @@
       with_items: "{{ import_job_status.stdout_lines }}"
 
     - name: Notify linux team DL if any errors found in itop import
-      shell: ../scripts/itop_logs_file.sh
+      shell: /home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/scripts/itop_logs_file.sh
    

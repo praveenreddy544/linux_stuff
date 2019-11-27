@@ -1,0 +1,8 @@
+[win]
+wintest
+
+[win:vars]
+ansible_user=admin
+ansible_password=RedMane8614Catalpa
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

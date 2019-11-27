@@ -12,10 +12,13 @@ fqd=\""Server FQDN is ---> `hostname -f`"\"
 fn=\"`hostnamectl |grep -i "Operating System"|cut -d ':' -f2|cut -d ' ' -f2,3|tr -d ' '`\"
 #vn=\"`cat /etc/redhat-release | awk '{print $(NF-1)}'|cut -d '.' -f1,2`\"
 vn=\"`cat /etc/redhat-release | awk '{print $(NF-1)}'`\"
-ipinfo=\"`hostname -I | awk '{print $1}'`\"
+#ipinfo=\"`hostname -I | awk '{print $1}'`\"
+fstep=`/bin/bash /tmp/itop_data_import_specific_scripts/ip_info.sh`
+sstep=\"`echo "$fstep"`\"
+ipinfo=`echo "$sstep"`
 status=\"'high'\"
 #ty=\"'implementation'\"
 ty=\"'production'\"
 
 #echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$vh,$status,$ty,$ipinfo >/tmp/details.csv
-echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$status,$ty,$ipinfo >/tmp/details.csv
+echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$status,$ty,"$ipinfo" >/tmp/details.csv

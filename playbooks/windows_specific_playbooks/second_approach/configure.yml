@@ -1,0 +1,22 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+    #- name: copy script to remote
+     # win_copy:
+      #  src: files/a.ps1
+       # dest: C:\Users\praveen\Desktop\a.ps1
+
+    - name: Run the setup.exe installer on multiple servers using the Domain Administrator
+      win_psexec:
+        #arguments: "C:\Users\praveen\Desktop\a.ps1"
+        arguments: Write-Host Hello World
+        executable: powershell.exe
+        elevated: yes
+        nobanner: yes
+        #username: "admin"
+        #password: "RedMane8614Catalpa"
+        interactive: yes
+        #command: C:\Users\praveen\Desktop\a.ps1
+        connection_username: CORPORATE\admin
+        connection_password: RedMane8614Catalpa
+        #arguments: C:\Users\praveen\Desktop\a.ps1
