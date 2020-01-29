@@ -1,8 +1,8 @@
 [win]
-ad
+dd
 
 [win:vars]
-ansible_user=praveen
-ansible_password=Saritha@123
+ansible_user=db2admin
+ansible_password=RedMane8614Catalpa
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore

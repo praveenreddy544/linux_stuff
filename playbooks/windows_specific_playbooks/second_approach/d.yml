@@ -1,0 +1,18 @@
+- hosts: all
+  gather_facts: no
+  vars_files:
+    - vars_for_windows.yml
+  vars_prompt:
+    - name: ansible_user
+      prompt: Enter your AD username
+      private: no
+    - name: ansible_password
+      prompt: Enter your AD password
+  tasks:
+    - name: create  itop  directory
+      win_command: whoami
+      register: whoami_out
+
+    - name: disp wo
+      debug:
+        var: whoami_out
