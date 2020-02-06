@@ -1,7 +1,7 @@
 [cloudvm]
 rs1
-rs3
 agent1
+ot
 
 [itopserver]
-rs3
+ot

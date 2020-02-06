@@ -47,7 +47,7 @@
     - name: fetch adtaholder file
       fetch:
         src: C:\Users\praveen\Desktop\itop_stuff\dataholder
-        dest: /tmp/to/
+        dest: /tmp/to
 
         
         

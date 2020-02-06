@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: remove directory /tmp/to which holds cached windows clients data
+      file:
+        path: /tmp/to
+        state: absent
+

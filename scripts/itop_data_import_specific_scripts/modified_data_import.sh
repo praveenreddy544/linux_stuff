@@ -4,6 +4,7 @@
 Dinfo=`/bin/bash /tmp/itop_data_import_specific_scripts/custom_desc_wrappher.sh`
 hname=\"`hostname`\"
 oname=\"'Redmane'\"
+appname=\"'websphere'\"
 cpuno=\"`nproc`\"
 meminfo=\"`free -g |awk '{print $2}' |grep -v 'used'|paste -s -d+ |bc`\"
 fqd=\""Server FQDN is ---> `hostname -f`"\"
@@ -21,4 +22,5 @@ status=\"'high'\"
 ty=\"'production'\"
 
 #echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$vh,$status,$ty,$ipinfo >/tmp/details.csv
-echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$status,$ty,"$ipinfo" >/tmp/details.csv
+#echo $hname,$oname,$cpuno,$meminfo,$fqd,"$Dinfo",$fn,$vn,$status,$ty,"$ipinfo" >/tmp/details.csv
+echo $hname,$oname,$cpuno,$meminfo,$appname,$fqd,"$Dinfo",$fn,$vn,$status,$ty,"$ipinfo" >/tmp/details.csv
