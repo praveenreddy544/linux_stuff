@@ -33,7 +33,25 @@
         home: /db2home/db2inst1
         uid: 3009
         password: $6$jGLTiZuqwBtbHVFJ$DXcWI94m2aTSNjMzGqvDJQHIfdhWkADA4bskX6tNLVMrzJQe5eAc9YogU2cyD6uaKhXgQSyLjqjOHlvx9msGs0
-        group: db2iadm1
+
+    - name: create db2fadm1  group locally
+      group:
+        name: db2fadm1
+        gid: 3011
+        state: present
+
+    - name: create db2fenc1 user locally
+      user:
+        name: db2fenc1
+        group: db2fadm1
+        #groups: sysadmins
+        comment: db2fenc1 user
+        shell: /bin/bash
+        home: /db2home/db2fenc1
+        uid: 3010
+        password: $6$RpkmBhrKyj6i182O$pXDMTLGlW/T1rFb3AVEClaZPbKX6WgsG9G9TqaOKYCsu9mSmzs2B1ND7RWtCwEDFaiKDFgysbTRze6YdB/1Wj0
+
+
 
     - name: create required mountpoints
       file:
