@@ -1,0 +1,86 @@
+---
+users_list:
+  - name: pporeddy
+    uid: 2001
+    groups: sysadmins
+    shell: /bin/bash
+    comment: 'praveen poreddy'
+    home: /home/pporeddy
+    password: $6$8VZ6s9IgoW/xe7FN$vXH6jqLMg3WEQW0xdugHjrAbYR5efoJ7PuPUN1nGsAtCipxvdi4I2J4giFe7icasfBFncp2q7g57kgngi8MAj/
+
+  - name: mkhan
+    uid: 2002
+    groups: sysadmins
+    shell: /bin/bash
+    comment: 'mohammad khan'
+    home: /home/mkhan
+    password: $6$dTimyVzWAc8Ng6Ua$YuCGI3nQmD47ByagH6QsgS7Z2BttMCQBV5mFSsYckS8dyox4C3AYNhlev2./1LQA1FJQIQ25EK7i0maBwNPvU1
+
+  - name: sgovind
+    uid: 2003
+    groups: sysadmins
+    shell: /bin/bash
+    comment: 'santosh govind'
+    home: /home/sgovind
+    password: $6$QUJBONWxAn.EGXy9$/X13Jdi4p2sptOxFBjch2L7yKUWAWMd/e6krH2CBWrOdv4GGScveJEUtz7byc/7op/Jfr0v22nhEyla7LPGzI1
+
+  - name: khuhn
+    uid: 2004
+    groups: sysadmins
+    shell: /bin/bash
+    comment: 'keith huhn'
+    home: /home/khuhn
+    password: $6$J2V3TlDyCKwtXdSQ$no6MlLCDVZIfRW39scZXzpFmzqKOMM1R2P11X/XWR94kDgTUfM/T5zt6vWQmESWrbc008ozHpEoxaxrFJP.GT/
+
+  - name: ozeni
+    uid: 2005
+    groups: devgroup
+    shell: /bin/bash
+    comment: 'ovais zeni'
+    home: /home/ozeni
+    password: $6$8fvcNR.W7/O3TCYH$Lg0P9na6WqzUiZ0FfvcdjxEEounOnKC0J6lDEt/J5VWhxsSxjFGtDVkWW22B1ojfpaBDHa1otxOEjYI6xYcNg.
+
+  - name: mkodali
+    uid: 2006
+    groups: devgroup
+    shell: /bin/bash
+    comment: 'maneesh kodali'
+    home: /home/mkodali
+    password: $6$3YRkphC1jFgIumbG$HwAOJcOAHqGaKQ.59faMr0HYlrvyn2kjlgQKArSgMI4k2G2n.mNr3vrdYM7O7s/lQzJpBTvFJKsbcFFSFIjPL.
+
+  - name: nkurapat
+    uid: 2007
+    groups: dbgroup
+    shell: /bin/bash
+    comment: 'nagaraju kurapati'
+    home: /home/nkurapat
+    password: $6$egqkAFTJlZv4sr17$jUTlyjoyikU4FY8XhTpoJZSVcZmfZaS41MK6fByxBGPgiDFCitGRaTzMfVCDOnoT3djahhh1x39QLsXDHkB840
+
+
+
+
+  #- name: mkhan
+    #uid: 2002
+    #groups: sysadmins
+    #group: sysadmins
+    #gid: 3001
+    #shell: /bin/bash
+    #comment: 'praveen poreddy'
+    #home: /home/pporeddy
+    #password: $6$8VZ6s9IgoW/xe7FN$vXH6jqLMg3WEQW0xdugHjrAbYR5efoJ7PuPUN1nGsAtCipxvdi4I2J4giFe7icasfBFncp2q7g57kgngi8MAj/
+ 
+groups_list:
+  - gname: sysadmins
+    grid: 3001
+    gstate: present
+
+  - gname: devgroup
+    grid: 3002
+    gstate: present
+
+  - gname: dbgroup
+    grid: 3003
+    gstate: present
+
+
+

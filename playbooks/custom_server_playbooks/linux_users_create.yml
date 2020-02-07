@@ -1,0 +1,34 @@
+- hosts: all
+  gather_facts: no
+  become: yes
+  vars_files:
+    - '../../custom_vars/users_creation_specific_vars.yml'
+    
+  tasks:
+
+    - name: create required groups
+      group:
+        name: "{{ item.gname }}"
+        gid: "{{ item.grid }}"
+        state: "{{ item.gstate }}"
+      with_items: "{{ groups_list }}"
+ 
+    - name: create users
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        groups: "{{ item.groups }}"
+        shell: "{{ item.shell }}"
+        comment: "{{ item.comment }}"
+        home: "{{ item.home }}"   
+        password: "{{ item.password }}"
+      with_items: "{{ users_list }}"
+
+    - name: create sudoers file to hold sysadmins group in sudoers
+      lineinfile:
+        path: /etc/sudoers.d/sysadmins
+        create: yes
+        line: "%sysadmins  ALL=(ALL) NOPASSWD:ALL"
+        owner: root
+        group: root
+        mode: '0440'

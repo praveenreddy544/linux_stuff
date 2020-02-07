@@ -1,63 +1,65 @@
 ---
 input_disks:
-- /dev/sdc
 - /dev/sdd
+- /dev/sde
+- /dev/sdf
+- /dev/sdg
 
 lvm_list:
   - name: lvdbfs_dbtt1cu1
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1
 
   - name: lvdbfs_dbtt1cu1_catalog
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1/catalog
  
   - name: lvdbfs_dbtt1cu1_data
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1/data
 
   - name: lvdbfs_dbtt1cu1_tlogs 
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1/tlogs
 
   - name: lvdbfs_dbtt1cu1_tmp 
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1/tmp
 
   - name: lvdbfs_dbtt1cu1_user 
-    size: 1GB
+    size: 5G
     mountpoint_name: /dbfs/dbtt1cu1/user
 
   - name: lvopt_IBM_IM
-    size: 1GB
+    size: 5G
     mountpoint_name: /opt/IBM/InstallationManager
 
   - name: lvvar_ibm_IM
-    size: 1GB
+    size: 5G
     mountpoint_name: /var/ibm/InstallationManager
 
   - name: lvdb2home
-    size: 1GB
+    size: 10G
     mountpoint_name: /db2home
 
   - name: lvopt_IBM_db2
-    size: 1GB
+    size: 10G
     mountpoint_name: /opt/IBM/db2
 
   - name: lvdbfs_dbtt1cu1_backup
-    size: 1GB
+    size: 10G
     mountpoint_name: /dbfs/dbtt1cu1/backup
 
   - name: lvopt_IBM_IMShared
-    size: 1GB
+    size: 10G
     mountpoint_name: /opt/IBM/IMShared
 
   - name: lvdba_work
-    size: 1GB
+    size: 20G
     mountpoint_name: /dba_work
    
   - name: lvopt_IBM_WebSphere
-    size: 1GB
+    size: 80G
     mountpoint_name: /opt/IBM/WebSphere
  
  
