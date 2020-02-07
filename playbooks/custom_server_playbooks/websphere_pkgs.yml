@@ -1,0 +1,20 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: install required pkgs
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+          - libXtst.x86_64
+          - libXtst.i686
+          - gtk2.x86_64
+          - gtk2.i686
+          - xorg-x11-server-common.x86_64
+          - xorg-x11-xauth.x86_64
+          - xorg-x11-apps.x86_64
+          - xorg-x11-xkb-utils.x86_64
+          - xorg-x11-font-utils.x86_64
+          - xorg-x11-server-Xorg.x86_64

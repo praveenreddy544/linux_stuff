@@ -27,6 +27,7 @@
       user:
         name: db2inst1
         group: db2iadm1
+        groups: sysadmins
         comment: db2inst1 user
         shell: /bin/bash
         home: /db2home/db2inst1

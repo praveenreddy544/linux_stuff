@@ -50,7 +50,7 @@ users_list:
 
   - name: nkurapat
     uid: 2007
-    groups: dbgroup
+    groups: dbgroup,sysadmins
     shell: /bin/bash
     comment: 'nagaraju kurapati'
     home: /home/nkurapat
