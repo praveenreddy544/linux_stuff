@@ -56,6 +56,25 @@ users_list:
     home: /home/nkurapat
     password: $6$egqkAFTJlZv4sr17$jUTlyjoyikU4FY8XhTpoJZSVcZmfZaS41MK6fByxBGPgiDFCitGRaTzMfVCDOnoT3djahhh1x39QLsXDHkB840
 
+  - name: curapd01
+    uid: 2009
+    groups: appadm,sysadmins
+    shell: /bin/bash
+    comment: 'curapd01 user'
+    home: /home/curapd01
+    password: $6$bJuBhRT81rZjoCOG$e5gXIkBNBndOOI7bJsjFwBGhUNGWL83YtZ3YYRBD2EY2qlHdfJfk7Ok5wCV08I5uBN6GPw283yYCOIOMXkPxJ1
+
+  - name: wasadm
+    uid: 2010
+    groups: wasadm
+    shell: /bin/bash
+    comment: 'wasadm user'
+    home: /home/wasadm
+    password: $6$QW6KhkzLGN7BUIoA$/qLB1hHoPnUPbAI5pCi99aWo1.ucNhmu/2HiZF1JQ3J14M13nvVd2b6GXUsgR6dYCZNranSWa95UjpPH8yKtd.
+
+
+
+
 groups_list:
   - gname: sysadmins
     grid: 3001
@@ -73,4 +92,11 @@ groups_list:
     grid: 3004
     gstate: present
 
+  - gname: appadm
+    grid: 3006
+    gstate: present
+
+  - gname: wasadm
+    grid: 3007
+    gstate: present
 

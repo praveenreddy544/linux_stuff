@@ -114,6 +114,14 @@
         - /dba_work
         - /dbfs/dbtt1cu1
 
+    - name: change webshpere required permissions
+      file:
+        path: /opt/IBM/WebSphere
+        owner: wasadm
+        group: wasadm
+        mode: '0755'
+        recurse: yes
+
       
     
  
