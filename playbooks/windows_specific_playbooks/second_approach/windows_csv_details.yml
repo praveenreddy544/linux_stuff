@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: winservers
   gather_facts: no
   vars_files:
     - vars_for_windows.yml

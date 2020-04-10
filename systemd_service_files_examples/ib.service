@@ -1,0 +1,15 @@
+[Unit]
+Description='ibm websphere app service for standalone profile'
+
+[Service]
+Type=forking
+#Type=oneshot
+ExecStart=/opt/IBM/WebSphere/AppServer/profiles/AppSrv04/bin/startServer.sh server1
+ExecStop=/opt/IBM/WebSphere/AppServer/profiles/AppSrv04/bin/stopServer.sh server1
+User=ibmweb
+Group=ibmweb
+#RemainAfterExit=true
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

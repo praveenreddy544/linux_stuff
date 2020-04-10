@@ -1,4 +1,7 @@
-ad
+[winservers]
+#ad
 wincuram
-wincuram2
 winlocal
+
+[itopserver]
+rs3

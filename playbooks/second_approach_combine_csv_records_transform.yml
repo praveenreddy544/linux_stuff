@@ -1,0 +1,10 @@
+- hosts: itopserver
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: run script on local host
+      shell: ../scripts/combine_csv_add_headers.sh
+      delegate_to: localhost
+
+    - name: include post tasks on itop server
+      include: linux_transfer_csv_file_to_itop_server.yml

@@ -20,5 +20,4 @@ $tot="Total number of IP's found: $total_ips_count (Below displayed)"
 
 $ips=(echo "$($tot)"`n"$($ip)")
 
-
-Write-Host "`"$shortname`""-nonewline ',';Write-Host "`"Redmane`"" -nonewline ',';Write-Host "`"$cpuinfo`"" -nonewline ',';Write-Host "`"$ram_in_gb`"" -nonewline ',';Write-Host "`"Server FQDN is ---> $hname`"" -nonewline ',';Write-Host "`"Please login to Server to see Partitions/Drives Info`"" -nonewline ',';Write-Host "`"Windows`"" -nonewline ',';Write-Host "`"$os_version`"" -nonewline ',';Write-Host "`"high`"" -nonewline ',';Write-Host "`"production`"" -nonewline ',';Write-Host "`"$ips`""
+Write-Host "`"$shortname`""-nonewline ',';Write-Host "`"Redmane`"" -nonewline ',';Write-Host "`"$cpuinfo`"" -nonewline ',';Write-Host "`"$ram_in_gb`"" -nonewline ',';Write-Host "`"Server FQDN is ---> $hname`"" -nonewline ',';Write-Host "`"Please login to this windows server to see Partitions/Drives Info`"" -nonewline ',';Write-Host "`"Windows`"" -nonewline ',';Write-Host "`"$os_version`"" -nonewline ',';Write-Host "`"high`"" -nonewline ',';Write-Host "`"production`"" -nonewline ',';Write-Host "`"$ips`""
