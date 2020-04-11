@@ -1,0 +1,29 @@
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  vars_files:
+    - var1.yml
+  tasks:
+    - name: copy templated file
+      template:
+        src: one.j2
+        dest: realm_join.sh
+        mode: '0700'
+    
+
+    - name: display passwd string
+      #command: echo {{ passwd }}| realm join --user=chintu ad
+      shell: /home/prav/ansible_stuff/playbooks/linux_internal_os_specific/linux_stuff/playbooks/realm_join.sh
+      register: op
+   
+    - name: display op
+      debug:
+        var: op
+
+    - name: encrypt realm_join.sh file
+      shell: ansible-vault encrypt realm_join.sh --vault-password-file dp
+    #- name: change mode to 700 on realm_join.sh
+    #  command: chmod 700 realm_join.sh
+        
+      #debug:
+        #msg: "password is ---> {{ passwd }}"
