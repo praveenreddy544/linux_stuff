@@ -1,0 +1,111 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: install required yum pkgs
+      yum:
+        #name: "{{ item }}"
+        name: ['gcc', 'glibc', 'glibc-common', 'openssl', 'openssl-devel', 'perl', 'wget']
+        state: present
+      #with_items:
+        #- gcc
+        #- glibc
+        #- 'glibc-common'
+        #- openssl
+        #- openssl-devel
+        #- perl
+        #- wget
+   
+    - name: Creating nagios group
+      group:
+        name: "{{ item.key }}"
+        state: present
+        gid: "{{ item.value }}"
+      with_dict: {nagios: 2010}
+        
+
+    - name: Creating nagios user
+      user:
+        name: nagios
+        uid: '2010'
+        shell: '/usr/sbin/nologin'
+        group: nagios
+        expires: -1
+        home: '/var/spool/nagios'
+
+    - name: create nagios placeholder directory
+      file:
+        path: /root/nagios_stuff
+        state: directory
+        mode: '0777'
+
+    - name: copy nrpe folder to remote servers
+      copy:
+        src: /home/prav/files/nrpe-nrpe-3.2.1
+        dest: /root/nagios_stuff
+        mode: '0755'
+
+    - name: run configure for nagios command
+      script:
+        chdir: /root/nagios_stuff/nrpe-nrpe-3.2.1
+        cmd: configure_make.sh
+      register: op
+
+    - name: display op 
+      debug:
+        var: op
+   
+    - name: enable firewalld port 5666/tcp at os firewall
+      firewalld:
+        port: 5666/tcp
+        permanent: yes
+        state: enabled 
+
+    - name: copy nrpe.cfg config file to remote server
+      copy:
+        src: files/nrpe.cfg
+        dest: /usr/local/nagios/etc/nrpe.cfg
+        owner: nagios
+        group: nagios
+        mode: '0644'
+
+    - name: copy nagios plugins to remote server
+      copy:
+        src: nagios_plugins/
+        dest: /usr/lib64/nagios/plugins/
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: change permission on plugins directory
+      file:
+        path: /usr/lib64/nagios
+        state: directory
+        recurse: yes
+        mode: '0755'
+        owner: root
+        owner: root
+
+    - name: start nrpe service and enable it
+      service:
+        name: nrpe
+        state: started
+        enabled: yes
+
+    - name: display shortname
+      debug:
+        msg: "I am on server ---> {{ ansible_hostname }} and ip is ---> {{ ansible_default_ipv4['address'] }}" 
+
+    - name: copy template to remote server
+      template:
+        src: templates/first.j2
+        dest: /tmp/{{ ansible_hostname }}.cfg
+        owner: nagios
+        mode: '0644'
+
+    - name: fetch nagios server.cfg file to server
+      fetch:
+        src: /tmp/{{ ansible_hostname }}.cfg
+        dest: /usr/local/nagios/etc/servers/
+        flat: yes

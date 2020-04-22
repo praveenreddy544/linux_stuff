@@ -1,7 +1,7 @@
 [winservers]
 #ad
 wincuram
-#winlocal
+winlocal
 
 [itopserver]
 rs3

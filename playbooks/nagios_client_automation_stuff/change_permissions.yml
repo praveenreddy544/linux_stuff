@@ -1,0 +1,11 @@
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: change file permisison
+      shell: bash change_permissions.sh
+
+    - name: reload nagios systemd service
+      service:
+        name: nagios
+        state: reloaded
